@@ -23,7 +23,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="scrollbar-thin scrollbar-track-slate-50 scrollbar-thumb-slate-400"
+    >
+      <head>
+        <link
+          rel="icon"
+          href="/icon?<generate>"
+          type="image/png"
+          sizes="32x32"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

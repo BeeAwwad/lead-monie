@@ -1,33 +1,54 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import Button from "./Button"
-import clsx from "clsx"
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Button from "./Button";
+import clsx from "clsx";
 
 const Nav = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   let Links = [
     { name: "Home", link: "#" },
     { name: "Features", link: "#" },
     { name: "FAQ", link: "#" },
     { name: "Contact Us", link: "#" },
-  ]
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleNavClick = () => {
     setOpen((prev) => {
-      return !prev
-    })
-  }
+      return !prev;
+    });
+  };
   return (
-    <header className="shadow-md w-full sticky top-0 left-0">
-      <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
-        <div
-          className="font-bold text-xl md:text-2xl cursor-pointer flex items-center 
-      text-gray-800 relative"
-        >
-          <span className="text-3xl text-indigo-600 mr-1 pt-2"></span>
+    <header
+      className={clsx(
+        "navbar sticky left-0 top-0 w-full transition-transform",
+        {
+          "primer-medium": scrolled,
+        },
+      )}
+    >
+      <div className="items-center justify-between bg-white px-7 py-4 md:flex md:px-10">
+        <div className="relative flex cursor-pointer items-center text-xl font-bold text-gray-800 md:text-2xl">
+          <span className="mr-1 pt-2 text-3xl"></span>
           LeadMonie
         </div>
 
@@ -37,7 +58,7 @@ const Nav = () => {
             `tham tham-e-squeeze tham-w-6 absolute right-2 top-1 px-10 py-7 hover:opacity-100 md:hidden`,
             {
               "tham-active": open,
-            }
+            },
           )}
         >
           <div className="tham-box mr-5">
@@ -46,14 +67,14 @@ const Nav = () => {
         </div>
         <nav>
           <ul
-            className={`flex flex-col md:flex-row items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:py-0 py-9 transition-all duration-500 ease-in shadow-md md:shadow-none gap-8 md:gap-0 ${
+            className={`absolute left-0 z-[-1] flex w-full flex-col items-center gap-8 bg-white py-9 pb-12 shadow-md transition-all duration-500 ease-in md:static md:z-auto md:w-auto md:flex-row md:gap-0 md:py-0 md:pb-0 md:shadow-none ${
               open ? "top-14" : "top-[-31rem]"
             }`}
           >
             {Links.map((link, index) => (
               <li
                 key={index + 1}
-                className="md:ml-8 text-lg font-medium md:text-base cursor-pointer after:mt-1 after:block after:scale-x-0 after:border-b-[4px] after:border-gray-800 after:transition-all after:duration-200 after:ease-in-out after:content-[''] hover:after:scale-x-100"
+                className="cursor-pointer text-lg font-medium after:mt-1 after:block after:scale-x-0 after:border-b-[4px] after:border-gray-800 after:transition-all after:duration-200 after:ease-in-out after:content-[''] hover:after:scale-x-100 md:ml-8 md:text-base"
               >
                 <Link href={link.link} className="text-gray-800">
                   {link.name}
@@ -66,7 +87,7 @@ const Nav = () => {
         <Button className="hidden md:block">Download App</Button>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 export default {
   content: [
@@ -14,5 +14,9 @@ export default {
       },
     },
   },
-  plugins: [require("tailwind-hamburgers"), "prettier-plugin-tailwindcss"],
-} satisfies Config
+  plugins: [
+    require("tailwind-hamburgers"),
+    "prettier-plugin-tailwindcss",
+    require("tailwind-scrollbar")({ preferredStrategy: "pseudoelements" }),
+  ],
+} satisfies Config;

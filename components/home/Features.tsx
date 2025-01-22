@@ -1,13 +1,13 @@
-import { Icon } from "@iconify/react/dist/iconify.js"
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 type Feature = {
-  feature: string
-  description: string
-  id: string
-  icon: string
-  color: string
-  bg: string
-}
+  feature: string;
+  description: string;
+  id: string;
+  icon: string;
+  color: string;
+  bg: string;
+};
 
 const Features = () => {
   const Features: Feature[] = [
@@ -17,18 +17,10 @@ const Features = () => {
         "Pay school fees, flight tickets, utility bills, and subscriptions in just a few clicks.",
       id: "item-one",
       icon: "fa6-solid:money-bill",
-      color: "text-red-600",
-      bg: "bg-red-100",
+      color: "text-lime-600",
+      bg: "bg-lime-100",
     },
-    {
-      feature: "Smart Savings & Investments",
-      description:
-        "Save for your goals and invest in real estate, agriculture, and more.",
-      id: "item-two",
-      icon: "material-symbols:nest-found-savings",
-      color: "text-green-600",
-      bg: "bg-green-100",
-    },
+
     {
       feature: "Secure Virtual Cards",
       description: "Create customizable virtual cards for online payments.",
@@ -55,19 +47,28 @@ const Features = () => {
       color: "text-indigo-600",
       bg: "bg-indigo-100",
     },
-  ]
+    {
+      feature: "Smart Savings & Investments",
+      description:
+        "Save for your goals and invest in real estate, agriculture, and more.",
+      id: "item-two",
+      icon: "material-symbols:nest-found-savings",
+      color: "text-green-600",
+      bg: "bg-green-100",
+    },
+  ];
 
   return (
     <section>
-      <div className=" mx-auto py-20 md:py-24 lg:py-28">
-        <h2 className="text-center text-2xl tracking-tight font-medium mb-10">
+      <div className="mx-auto py-20 md:py-24 lg:py-28">
+        <h2 className="mb-10 text-center text-2xl font-medium tracking-tight md:text-4xl lg:text-5xl">
           Why Choose LeadMonie?
         </h2>
-        <div className="feature-container max-w-sm sm:max-w-xl md:max-w-2xl lg:max-w-3xl xl:max-w-[100rem] gap-4 md:gap-8 px-12 mx-auto">
+        <div className="feature-container mx-auto max-w-sm gap-4 px-12 sm:max-w-xl md:max-w-2xl md:gap-8 lg:max-w-3xl xl:max-w-[100rem]">
           {Features.map((feature, index) => (
             <div
               key={index + 1}
-              className={`${feature.id} flex flex-col md:items-start primer-medium py-8 px-6 rounded-lg space-y-5 transition-colors`}
+              className={`${feature.id} feature-item flex flex-col space-y-5 rounded-lg px-6 py-8 transition-colors md:items-start`}
             >
               <div className={`p-3 ${feature.bg} w-fit rounded-md`}>
                 <Icon
@@ -82,7 +83,7 @@ const Features = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;
