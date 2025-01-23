@@ -24,7 +24,7 @@ const HowItWorks = () => {
       <div className="container mx-auto grid grid-cols-1 px-5 py-20 sm:justify-items-center md:grid-cols-2 md:py-28 lg:py-36">
         <div className="order-2 space-y-10 md:order-1">
           <h2 className="text-balance text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
-            Get Startedin 3 Easy Steps
+            Get Started in 3 Easy Steps
           </h2>
           <ul className="space-y-5 text-slate-500">
             {steps.map((step, index) => (
