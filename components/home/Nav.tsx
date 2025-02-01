@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Button from "./Button";
 import clsx from "clsx";
+import { abril_fatface } from "@/lib/font";
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
@@ -40,14 +41,16 @@ const Nav = () => {
   return (
     <header
       className={clsx(
-        "navbar sticky left-0 top-0 w-full transition-transform",
+        "navbar sticky left-0 top-0 z-50 w-full transition-transform",
         {
           "primer-medium": scrolled,
         },
       )}
     >
       <div className="items-center justify-between bg-white px-7 py-4 md:flex md:px-10">
-        <div className="relative flex cursor-pointer items-center text-xl font-bold text-gray-800 md:text-2xl">
+        <div
+          className={`${abril_fatface} relative flex cursor-pointer items-center text-xl font-bold text-gray-800 md:text-2xl`}
+        >
           <span className="mr-1 pt-2 text-3xl"></span>
           LeadMonie
         </div>
@@ -75,16 +78,17 @@ const Nav = () => {
               <li
                 key={index + 1}
                 className="cursor-pointer text-lg font-medium after:mt-1 after:block after:scale-x-0 after:border-b-[4px] after:border-gray-800 after:transition-all after:duration-200 after:ease-in-out after:content-[''] hover:after:scale-x-100 md:ml-8 md:text-base"
+                onClick={() => setOpen(false)}
               >
                 <Link href={link.link} className="text-gray-800">
                   {link.name}
                 </Link>
               </li>
             ))}
-            <Button className="block md:hidden">Download App</Button>
+            <Button className="bg-slate-50 md:hidden">Download App</Button>
           </ul>
         </nav>
-        <Button className="hidden md:block">Download App</Button>
+        <Button className="hidden bg-slate-50 md:block">Download App</Button>
       </div>
     </header>
   );

@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Button from "./Button";
+import { abril_fatface } from "@/lib/font";
 
 type step = {
   title: string;
@@ -21,9 +22,11 @@ const HowItWorks = () => {
 
   return (
     <section className="bg-slate-100">
-      <div className="container mx-auto grid grid-cols-1 px-5 py-20 sm:justify-items-center md:grid-cols-2 md:py-28 lg:py-36">
+      <div className="container mx-auto grid grid-cols-1 px-5 py-20 sm:justify-items-center md:grid-cols-2 md:py-24 lg:py-28">
         <div className="order-2 space-y-10 md:order-1">
-          <h2 className="text-balance text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
+          <h2
+            className={`${abril_fatface} text-balance text-2xl font-medium tracking-tight sm:text-3xl md:text-4xl lg:text-5xl`}
+          >
             Get Started in 3 Easy Steps
           </h2>
           <ul className="space-y-5 text-slate-500">

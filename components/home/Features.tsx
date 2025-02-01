@@ -1,3 +1,4 @@
+import { abril_fatface } from "@/lib/font";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 type Feature = {
@@ -61,10 +62,12 @@ const Features = () => {
   return (
     <section>
       <div className="mx-auto py-20 md:py-24 lg:py-28">
-        <h2 className="mb-10 text-center text-2xl font-medium tracking-tight md:text-4xl lg:text-5xl">
+        <h2
+          className={`${abril_fatface} mb-10 text-center text-2xl font-medium tracking-tight md:text-4xl lg:text-5xl`}
+        >
           Why Choose LeadMonie?
         </h2>
-        <div className="feature-container mx-auto max-w-sm gap-4 px-12 sm:max-w-xl md:max-w-2xl md:gap-8 lg:max-w-3xl xl:max-w-[100rem]">
+        <div className="feature-container mx-auto max-w-sm gap-1 px-12 sm:max-w-xl md:max-w-2xl md:gap-4 lg:max-w-3xl lg:gap-8 xl:max-w-[100rem]">
           {Features.map((feature, index) => (
             <div
               key={index + 1}

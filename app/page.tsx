@@ -4,6 +4,8 @@ import Nav from "@/components/home/Nav";
 import HowItWorks from "@/components/home/HowItWorks";
 import Testimonials from "@/components/home/Testimonials";
 import Faq from "@/components/home/Faq";
+import NewsLetter from "@/components/home/NewsLetter";
+import Footer from "@/components/home/Footer";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
         <HowItWorks />
         <Testimonials />
         <Faq />
+        <NewsLetter />
+        <Footer />
       </main>
     </>
   );

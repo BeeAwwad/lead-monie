@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
